@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="contact"
+            type="com.harsh.mvvmapp.repository.entity.Contact"/>
+        <variable name="clickHandler"
+            type="com.harsh.mvvmapp.clickhandler.AddContactActivityClickHandler"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_launcher_background">
+        <EditText
+
+            android:id="@+id/add_contact_name"
+
+            android:layout_width="0dp"
+            android:textColorHint="@color/black"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@={contact.name}"
+            android:background="@color/white"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+
+            android:id="@+id/add_contact_phone"
+
+            android:layout_width="0dp"
+            android:textColorHint="@color/black"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@={contact.phone}"
+            android:background="@color/white"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_contact_name" />
+        <com.google.android.material.button.MaterialButton
+
+            android:id="@+id/add_contact_button"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_contact"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:elevation="10dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/white"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            app:rippleColor="@color/dark_orange"
+            app:backgroundTint="@color/orange"
+            android:onClick="@{clickHandler::onAddContactButtonClicked}"
+            app:layout_constraintTop_toBottomOf="@id/add_contact_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
